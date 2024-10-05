@@ -12,10 +12,17 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Potent Brew',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: '', slug: 'brew' },
+						{ label: '', slug: 'brew/beer-cellar' },
+						{ label: '', slug: 'brew/mosaic-corridor' },
+						{ label: '', slug: 'brew/well-room' },
+						{ label: '', slug: 'brew/the-lab' },
+						{ label: '', slug: 'brew/storeroom' },
+						{ label: '', slug: 'brew/returning-to-glowkindle' },
+
 					],
 				},
 				{
