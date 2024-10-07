@@ -26,6 +26,16 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Presto Change-O',
+					items: [
+						{ label: '', slug: 'presto-change-o' },
+						{ label: '', slug: 'presto-change-o/welcome-to-feat-fest' },
+						{ label: '', slug: 'presto-change-o/high-price-of-free-stuff' },
+						{ label: '', slug: 'presto-change-o/the-chase-is-on' },
+						{ label: '', slug: 'presto-change-o/feats-of-valor-festival' },
+					],
+				},
+				{
 					label: 'Reference',
 					autogenerate: { directory: 'reference' },
 				},
