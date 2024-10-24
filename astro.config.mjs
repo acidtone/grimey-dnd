@@ -12,33 +12,33 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Potent Brew',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: '', slug: 'brew' },
-						{ label: '', slug: 'brew/beer-cellar' },
-						{ label: '', slug: 'brew/mosaic-corridor' },
-						{ label: '', slug: 'brew/well-room' },
-						{ label: '', slug: 'brew/the-lab' },
-						{ label: '', slug: 'brew/storeroom' },
-						{ label: '', slug: 'brew/returning-to-glowkindle' },
-
-					],
+					label: 'Brew',
+					autogenerate: { directory: 'brew' },
 				},
 				{
 					label: 'Presto Change-O',
-					items: [
-						{ label: '', slug: 'presto-change-o' },
-						{ label: '', slug: 'presto-change-o/welcome-to-feat-fest' },
-						{ label: '', slug: 'presto-change-o/high-price-of-free-stuff' },
-						{ label: '', slug: 'presto-change-o/the-chase-is-on' },
-						{ label: '', slug: 'presto-change-o/feats-of-valor-festival' },
-					],
+					autogenerate: { directory: 'presto-change-o' },
+
+					// items: [
+						// { label: '', slug: 'presto-change-o' },
+						// { label: '', slug: 'presto-change-o/welcome-to-feat-fest' },
+						// { label: '', slug: 'presto-change-o/high-price-of-free-stuff' },
+						// { label: '', slug: 'presto-change-o/pitchforks-are-out' },
+						// { label: '', slug: 'presto-change-o/to-the-alchemists' },
+						// { label: '', slug: 'presto-change-o/searching-for-clues' },
+						// { label: '', slug: 'presto-change-o/the-chase-is-on' },
+						// { label: '', slug: 'presto-change-o/holds-stronghold' },
+						// { label: '', slug: 'presto-change-o/feats-of-valor-festival' },
+					// ],
 				},
 				{
 					label: 'Reference',
 					autogenerate: { directory: 'reference' },
 				},
+				{
+					label: 'Creatures',
+					autogenerate: { directory: 'creatures' },
+				}
 			],
 		}),
 	],

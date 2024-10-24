@@ -1,6 +1,8 @@
 ---
 title: Setup
 description: A first-level D&D 5e adventure.
+sidebar:
+  order: 1
 ---
 
 The Wizard’s Tower Brewing Co. - a craft brewery known for its hoppy summer ales - is in dire need of help from a band of reliable, affordable adventurers. The owner has posted a job on the local notice boards and is calling in favors from friendly innkeepers all over town to spread the word. 

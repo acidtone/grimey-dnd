@@ -1,0 +1,37 @@
+---
+import { Card } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+const response = await fetch('https://www.dnd5eapi.co/api/monsters/giant-rat');
+const giantRat = await response.json();
+---
+
+<Tabs>
+  <TabItem label="Key Stats">
+    <Card title="Battle">
+      <Aside type="tip" title=`Armor Class: ${giantRat.armor_class[0].value}` />
+      <Aside type="tip" title=`Hit Points: ${giantRat.hit_points}` />
+      <Aside type="tip" title=`Speed: ${giantRat.speed.walk}` />
+    </Card>
+  </TabItem>
+  <TabItem label="Abilities">
+    <Card title={giantRat.name}>
+      <Aside type="caution" title=`Strength: ${giantRat.strength}` />
+      <Aside type="caution" title=`Dexterity: ${giantRat.dexterity}` />
+      <Aside type="caution" title=`Constitution: ${giantRat.constitution}` />
+      <Aside type="caution" title=`Intelligence: ${giantRat.intelligence}` />
+      <Aside type="caution" title=`Wisdom: ${giantRat.wisdom}` />
+      <Aside type="caution" title=`Charisma: ${giantRat.charisma}` />
+    </Card>
+  </TabItem>
+</Tabs>
+
+
+<Card title={giantRat.name}>
+  <Aside type="tip" title=`Battle`>
+    <h2>Armor Class: {giantRat.armor_class[0].value}</h2>
+    <h2>Hit Points: {giantRat.hit_points}</h2>
+    <h2>Speed: {giantRat.speed.walk}</h2>
+  </Aside>
+</Card>
