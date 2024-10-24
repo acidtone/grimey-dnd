@@ -9,14 +9,14 @@ const giantRat = await response.json();
 
 <Tabs>
   <TabItem label="Key Stats">
-    <Card title="Battle">
+    <Card title="Battle" icon="seti:nunjucks">
       <Aside type="tip" title=`Armor Class: ${giantRat.armor_class[0].value}` />
       <Aside type="tip" title=`Hit Points: ${giantRat.hit_points}` />
       <Aside type="tip" title=`Speed: ${giantRat.speed.walk}` />
     </Card>
   </TabItem>
   <TabItem label="Abilities">
-    <Card title={giantRat.name}>
+    <Card title={giantRat.name} icon="setting">
       <Aside type="caution" title=`Strength: ${giantRat.strength}` />
       <Aside type="caution" title=`Dexterity: ${giantRat.dexterity}` />
       <Aside type="caution" title=`Constitution: ${giantRat.constitution}` />
