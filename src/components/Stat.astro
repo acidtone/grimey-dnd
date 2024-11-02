@@ -1,0 +1,28 @@
+---
+let {title, value} = Astro.props;
+
+if (typeof value === 'string') {
+  value = value.replace('ft.', '').trim();
+}
+---
+<article class="not-content">
+  <p>{title}</p>
+  <div>{value}</div>
+</article>
+
+<style>
+  article {
+    padding: 1em;
+    line-height: 1;
+    text-align: center;
+    width: max-content
+  }
+  p {
+    font-size: 18px;
+    margin: 0;
+  }
+  div {
+    font-size: 50px;
+    margin: 0;
+  }
+</style>
