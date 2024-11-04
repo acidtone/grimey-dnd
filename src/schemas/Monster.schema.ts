@@ -103,4 +103,10 @@ export const MonsterSchema = z.object({
 });
 
 // Type for TypeScript users
+export type AbilityScoreSchema = z.infer<typeof AbilityScoreSchema>;
+export type SpeedSchema = z.infer<typeof SpeedSchema>;
+export type ProficiencySchema = z.infer<typeof ProficiencySchema>;
+export type SenseSchema = z.infer<typeof SenseSchema>;
+export type SpecialAbilitySchema = z.infer<typeof SpecialAbilitySchema>;
+export type ActionSchema = z.infer<typeof ActionSchema>;
 export type Monster = z.infer<typeof MonsterSchema>;

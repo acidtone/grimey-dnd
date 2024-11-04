@@ -1,0 +1,16 @@
+---
+import Stat from '../components/Stat.astro';
+
+const { stats } = Astro.props;
+---
+
+<div class="container not-content">
+  <Stat title="AC" value={stats.armor_class[0].value}/>
+  <Stat title="HP" value={stats.hit_points}/>
+</div>
+
+<style>
+  .container {
+    display: flex;
+  }
+</style>

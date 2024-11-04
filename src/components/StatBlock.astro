@@ -1,0 +1,20 @@
+---
+import Stat from '../components/Stat.astro';
+
+const { stats } = Astro.props;
+---
+
+<div class="container not-content">
+  <Stat title="Str" value={stats.strength}/>
+  <Stat title="Dex" value={stats.dexterity}/>
+  <Stat title="Con" value={stats.constitution}/>
+  <Stat title="Int" value={stats.intelligence}/>
+  <Stat title="Wis" value={stats.wisdom}/>
+  <Stat title="Cha" value={stats.charisma}/>
+</div>
+
+<style>
+  .container {
+    display: flex;
+  }
+</style>

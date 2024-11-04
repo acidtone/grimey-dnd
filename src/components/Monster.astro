@@ -1,0 +1,28 @@
+---
+import StatBlock from '../components/StatBlock.astro';
+import type { Monster } from '../schemas/Monster.schema';
+import type { Stats, ArmorClass } from '../schemas/CustomStats.schema';
+
+const { slug } = Astro.props;
+
+const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${slug}`);
+const data: Monster = await response.json();
+
+const stats: Stats = {
+  dexterity: data.dexterity,
+  strength: data.strength,
+  constitution: data.constitution,
+  intelligence: data.intelligence,
+  wisdom: data.wisdom,
+  charisma: data.charisma
+}
+
+const battleStats = {
+  
+}
+
+console.log(data);
+---
+<h2>Main Stats</h2>
+<StatBlock stats={stats} />
+
