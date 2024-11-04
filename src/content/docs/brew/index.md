@@ -51,3 +51,6 @@ will pay **25gp per party member**.
 Should they agree, Glowkindle will lead the adventurers to
 the cellar entrance - a hatch in the floor of their main
 brewing area - and wish them luck.
+
+## Map
+![Map of Most Potent Brew](../../../assets/images/most-potent-brew/most-potent-brew.png)

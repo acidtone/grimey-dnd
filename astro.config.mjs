@@ -20,8 +20,8 @@ export default defineConfig({
 					autogenerate: { directory: 'presto-change-o' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Settings',
+					autogenerate: { directory: 'settings' },
 				},
 				{
 					label: 'Creatures',
