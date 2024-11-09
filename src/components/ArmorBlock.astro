@@ -2,9 +2,14 @@
 import Stat from '../components/Stat.astro';
 
 const { stats } = Astro.props;
+
+interface Armor {
+  type: string,
+  value: string
+}
 ---
 
-{stats.map((item) =>   
+{stats.map((item: Armor) =>   
 (<Stat title={`AC (${item.type})`} value={item.value} />)
 )}
 

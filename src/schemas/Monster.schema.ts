@@ -1,12 +1,12 @@
 import { z } from 'astro:content';
 
 // Helper schemas
-const AbilityScoreSchema = z.object({
+export const AbilityScoreSchema = z.object({
   name: z.string(),
   url: z.string().url(),
 });
 
-const ActionSchema = z.object({
+export const ActionSchema = z.object({
   name: z.string(),
   desc: z.string(),
   attack_bonus: z.number().optional(),
@@ -19,7 +19,7 @@ const ActionSchema = z.object({
   })).optional(),
 });
 
-const SpeedSchema = z.object({
+export const SpeedSchema = z.object({
   walk: z.string().optional(),
   fly: z.string().optional(),
   swim: z.string().optional(),
@@ -27,7 +27,7 @@ const SpeedSchema = z.object({
   burrow: z.string().optional(),
 });
 
-const ProficiencySchema = z.object({
+export const ProficiencySchema = z.object({
   value: z.number(),
   proficiency: z.object({
     name: z.string(),
@@ -35,7 +35,7 @@ const ProficiencySchema = z.object({
   }),
 });
 
-const SenseSchema = z.object({
+export const SenseSchema = z.object({
   blindsight: z.string().optional(),
   darkvision: z.string().optional(),
   passive_perception: z.number().optional(),
@@ -43,7 +43,7 @@ const SenseSchema = z.object({
   truesight: z.string().optional(),
 });
 
-const SpecialAbilitySchema = z.object({
+export const SpecialAbilitySchema = z.object({
   name: z.string(),
   desc: z.string(),
   usage: z.object({

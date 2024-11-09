@@ -1,4 +1,5 @@
 import { z } from 'astro:content';
+import { ProficiencySchema } from './Monster.schema'
 
 export const ArmorClassSchema = z.array(z.object({
   type: z.string(),
@@ -9,8 +10,18 @@ export const ArmorClassSchema = z.array(z.object({
   })).optional(),
 }));
 
-// Type for TypeScript users
-export type ArmorClass = z.infer<typeof ArmorClassSchema>;
+export const BattleStatsSchema = z.object({
+  hit_points: z.number(),
+  armor_class:ArmorClassSchema,
+  proficiencies: z.array(ProficiencySchema),
+  damage_vulnerabilities: z.array(z.string()),
+  damage_resistances: z.array(z.string()),
+  damage_immunities: z.array(z.string()),
+  condition_immunities: z.array(z.object({
+    name: z.string(),
+    url: z.string().url(),
+  }))
+});
 
 export const StatBlockSchema = z.object({
   strength: z.number(),
@@ -22,4 +33,6 @@ export const StatBlockSchema = z.object({
 });
 
 // Type for TypeScript users
+export type ArmorClass = z.infer<typeof ArmorClassSchema>;
+export type BattleStats = z.infer<typeof BattleStatsSchema>;
 export type Stats = z.infer<typeof StatBlockSchema>;

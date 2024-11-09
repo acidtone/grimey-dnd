@@ -1,10 +1,9 @@
 ---
 import { Card } from '@astrojs/starlight/components';
-import StatBlock from '../components/StatBlock.astro';
 import BattleBlock from './BattleBlock.astro';
 import ObjectBlock from '../components/ObjectBlock.astro';
 import type { Monster } from '../schemas/Monster.schema';
-import type { Stats, ArmorClass } from '../schemas/CustomStats.schema';
+import type { Stats, ArmorClass, BattleStats } from '../schemas/CustomStats.schema';
 
 const { slug } = Astro.props;
 
@@ -21,7 +20,7 @@ const stats: Stats = {
 }
 
 const armorStats: ArmorClass = data.armor_class;
-const battleStats = {
+const battleStats: BattleStats = {
   hit_points: data.hit_points,
   armor_class: armorStats,
   proficiencies: data.proficiencies,
