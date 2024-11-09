@@ -1,13 +1,35 @@
 ---
+import { Card } from '@astrojs/starlight/components';
 import Stat from '../components/Stat.astro';
+import ArmorBlock from '../components/ArmorBlock.astro';
 
 const { stats } = Astro.props;
 ---
 
-<div class="container not-content">
-  <Stat title="AC" value={stats.armor_class[0].value}/>
-  <Stat title="HP" value={stats.hit_points}/>
-</div>
+<Card title="Battle!">
+  <div class="container not-content">
+    <Stat title="HP" value={stats.hit_points}/>
+     {stats.armor_class.length > 0 && (<ArmorBlock stats={stats.armor_class} /> )}
+  </div>
+  {stats.proficiencies && stats.proficiencies.length > 0 && (
+    <h3>Proficiencies</h3>
+    <ol>
+      {stats.proficiencies.map(item => (
+        <li>{item.proficiency.name} ({item.value})</li>
+      ))}
+    </ol>
+  )}
+  <p><strong>Misc</strong></p>
+  <ul>
+    <li>Vulnerabilities: {stats.damage_vulnerabilities.length > 0 ? stats.damage_vulnerabilities.join(', ') : 'None'}</li>
+    <li>Resistances: {stats.damage_resistances.length > 0 ? stats.damage_resistances.join(', ') : 'None'}</li>
+    <li>Immunities: {stats.damage_immunities.length > 0 ? stats.damage_immunities.join(', ') : 'None'}</li>
+    <li>Condition Immunities: {stats.condition_immunities.length > 0 ? stats.condition_immunities.map(item => (
+      item.name
+    ).join(', ')): 'None'}</li>
+  </ul>
+  
+</Card>
 
 <style>
   .container {

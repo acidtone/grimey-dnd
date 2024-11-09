@@ -22,10 +22,6 @@ export default defineConfig({
 				{
 					label: 'Settings',
 					autogenerate: { directory: 'settings' },
-				},
-				{
-					label: 'Creatures',
-					autogenerate: { directory: 'creatures' },
 				}
 			],
 		}),

@@ -1,0 +1,17 @@
+---
+import Stat from '../components/Stat.astro';
+
+const { stats } = Astro.props;
+---
+<div class="container not-content">
+
+  {Object.entries(stats).map(item => ( 
+    <Stat title={item[0]} value={item[1]} /> 
+  ))}
+</div>
+
+<style>
+  .container {
+    display: flex;
+  }
+</style>

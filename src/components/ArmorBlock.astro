@@ -1,0 +1,10 @@
+---
+import Stat from '../components/Stat.astro';
+
+const { stats } = Astro.props;
+---
+
+{stats.map((item) =>   
+(<Stat title={`AC (${item.type})`} value={item.value} />)
+)}
+

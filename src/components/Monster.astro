@@ -1,5 +1,8 @@
 ---
+import { Card } from '@astrojs/starlight/components';
 import StatBlock from '../components/StatBlock.astro';
+import BattleBlock from './BattleBlock.astro';
+import ObjectBlock from '../components/ObjectBlock.astro';
 import type { Monster } from '../schemas/Monster.schema';
 import type { Stats, ArmorClass } from '../schemas/CustomStats.schema';
 
@@ -17,12 +20,92 @@ const stats: Stats = {
   charisma: data.charisma
 }
 
+const armorStats: ArmorClass = data.armor_class;
 const battleStats = {
-  
+  hit_points: data.hit_points,
+  armor_class: armorStats,
+  proficiencies: data.proficiencies,
+  damage_vulnerabilities: data.damage_vulnerabilities,
+  damage_resistances: data.damage_resistances,
+  damage_immunities: data.damage_immunities,
+  condition_immunities: data.condition_immunities
 }
 
-console.log(data);
 ---
-<h2>Main Stats</h2>
-<StatBlock stats={stats} />
+<Card title={data.name}>
+  <ObjectBlock stats={ stats } />
+  {Object.entries(data.speed).length > 0 && (<ObjectBlock stats={data.speed} />)}
+  {Object.entries(data.senses).length > 0 && (<ObjectBlock stats={data.senses} />)}
+  <BattleBlock stats={ battleStats } />
+  { data.special_abilities && data.special_abilities.length > 0 &&
+    <Card title="Special Abilities">
+      <ul>
+      {data.special_abilities.map((item) => (
+        <li>
+          <p><strong>{item.name}</strong><br/>{item.desc}</p>
+        </li>
+      ))}
+      </ul>
+    </Card>
+  }
+  { data.actions && data.actions.length > 0 &&
+
+    <Card title="Actions">
+      <ul>
+      {data.actions.map((item) => (
+        <li>
+          <p>
+            <strong>
+              {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                {item.damage && item.damage.length > 0 && (
+                  item.damage.map(damageItem => (
+                `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+              )).join(', ')
+            )}
+            </strong><br />
+            {item.desc}
+          </p>
+        </li>
+      ))}
+      </ul>
+    </Card>
+  }
+  { data.legendary_actions && data.legendary_actions.length > 0 &&
+
+    <Card title="Legendary Actions">
+      <ul>
+      {data.legendary_actions.map((item) => (
+        <li>
+          <p>
+            <strong>
+              {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                {item.damage && item.damage.length > 0 && (
+                  item.damage.map(damageItem => (
+                `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+              )).join(', ')
+            )}
+            </strong><br />
+            {item.desc}
+          </p>
+        </li>
+      ))}
+      </ul>
+    </Card>
+  }
+  { data.reactions && data.reactions.length > 0 &&
+
+    <Card title="Reactions">
+      <ul>
+      {data.reactions.map((item) => (
+        <li>
+          <p>
+            <strong>{item.name}</strong><br />
+            {item.desc}
+          </p>
+        </li>
+      ))}
+      </ul>
+    </Card>
+  }
+</Card>
 

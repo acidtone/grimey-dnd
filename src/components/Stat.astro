@@ -1,8 +1,16 @@
 ---
 let {title, value} = Astro.props;
 
+if (typeof title === 'string') {
+  title = title
+            .replace('passive_perception', 'PP')
+            .trim();
+}
+
 if (typeof value === 'string') {
-  value = value.replace('ft.', '').trim();
+  value = value
+            .replace('ft.', '')
+            .trim();
 }
 ---
 <article class="not-content">
