@@ -1,0 +1,74 @@
+{
+	"index": "the-balding-werewolf",
+	"name": "The Balding Werewolf",
+	"desc": "This individual was hoping for a cureall to fix male-patterned baldness but got more fur than he was hoping for.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "hybrid form",
+			"value": 12
+		}
+	],
+	"hit_points": 34,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "30 ft."
+	},
+	"strength": 15,
+	"dexterity": 13,
+	"constitution": 14,
+	"intelligence": 10,
+	"wisdom": 11,
+	"charisma": 10,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 11
+	},
+	"languages": "",
+	"special_abilities": [],
+	"actions": [
+		{
+			"name": "Multiattack",
+			"desc": "The werewolf makes two attacks: One with its bite and one with its claws."
+		},
+		{
+			"name": "Bite",
+			"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. If the target is a humanoid, it must succeed on a DC 10 Constitution saving throw or be cursed with werewolf lycanthropy.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "piercing",
+						"name": "Piercing",
+						"url": "/api/damage-types/piercing"
+					},
+					"damage_dice": "1d8+2"
+				}
+			],
+			"attack_bonus": 4
+		},
+		{
+			"name": "Bite",
+			"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (2d4 + 2) slashing damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "slashing",
+						"name": "Slashing",
+						"url": "/api/damage-types/slashing"
+					},
+					"damage_dice": "2d4+2"
+				}
+			],
+			"attack_bonus": 4
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

@@ -1,14 +1,21 @@
 ---
-import { Card } from '@astrojs/starlight/components';
+import { Card, Tabs, TabItem } from '@astrojs/starlight/components';
 import BattleBlock from './BattleBlock.astro';
 import ObjectBlock from '../components/ObjectBlock.astro';
 import type { Monster } from '../schemas/Monster.schema';
 import type { Stats, ArmorClass, BattleStats } from '../schemas/CustomStats.schema';
 
-const { slug } = Astro.props;
+let data: Monster;
 
-const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${slug}`);
-const data: Monster = await response.json();
+const { slug } = Astro.props;
+try {
+  data = await import(`../data/monsters/${slug}.json`);
+} catch(error) {
+  console.log(error);
+  
+  const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${slug}`);
+  data = await response.json();
+}
 
 const stats: Stats = {
   dexterity: data.dexterity,
@@ -32,79 +39,86 @@ const battleStats: BattleStats = {
 
 ---
 <Card title={data.name}>
-  <ObjectBlock stats={ stats } />
-  {Object.entries(data.speed).length > 0 && (<ObjectBlock stats={data.speed} />)}
-  {Object.entries(data.senses).length > 0 && (<ObjectBlock stats={data.senses} />)}
-  <BattleBlock stats={ battleStats } />
-  { data.special_abilities && data.special_abilities.length > 0 &&
-    <Card title="Special Abilities">
-      <ul>
-      {data.special_abilities.map((item) => (
-        <li>
-          <p><strong>{item.name}</strong><br/>{item.desc}</p>
-        </li>
-      ))}
-      </ul>
-    </Card>
-  }
-  { data.actions && data.actions.length > 0 &&
+  <Tabs>
+    <TabItem label="Battle">
+      <BattleBlock stats={ battleStats } />
+      { data.special_abilities && data.special_abilities.length > 0 &&
+        <Card title="Special Abilities">
+          <ul>
+          {data.special_abilities.map((item) => (
+            <li>
+              <p><strong>{item.name}</strong><br/>{item.desc}</p>
+            </li>
+          ))}
+          </ul>
+        </Card>
+      }
+      { data.actions && data.actions.length > 0 &&
+    
+        <Card title="Actions">
+          <ul>
+          {data.actions.map((item) => (
+            <li>
+              <p>
+                <strong>
+                  {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                    {item.damage && item.damage.length > 0 && (
+                      item.damage.map(damageItem => (
+                    `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+                  )).join(', ')
+                )}
+                </strong><br />
+                {item.desc}
+              </p>
+            </li>
+          ))}
+          </ul>
+        </Card>
+      }
+      { data.legendary_actions && data.legendary_actions.length > 0 &&
+    
+        <Card title="Legendary Actions">
+          <ul>
+          {data.legendary_actions.map((item) => (
+            <li>
+              <p>
+                <strong>
+                  {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                    {item.damage && item.damage.length > 0 && (
+                      item.damage.map(damageItem => (
+                    `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+                  )).join(', ')
+                )}
+                </strong><br />
+                {item.desc}
+              </p>
+            </li>
+          ))}
+          </ul>
+        </Card>
+      }
+      { data.reactions && data.reactions.length > 0 &&
+    
+        <Card title="Reactions">
+          <ul>
+          {data.reactions.map((item) => (
+            <li>
+              <p>
+                <strong>{item.name}</strong><br />
+                {item.desc}
+              </p>
+            </li>
+          ))}
+          </ul>
+        </Card>
+      }    
+    </TabItem>
+    <TabItem label="Extras">
+      <ObjectBlock stats={ stats } />
+      {Object.entries(data.speed).length > 0 && (<ObjectBlock stats={data.speed} />)}
+      {Object.entries(data.senses).length > 0 && (<ObjectBlock stats={data.senses} />)}
+    </TabItem>
+  </Tabs>
 
-    <Card title="Actions">
-      <ul>
-      {data.actions.map((item) => (
-        <li>
-          <p>
-            <strong>
-              {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
-                {item.damage && item.damage.length > 0 && (
-                  item.damage.map(damageItem => (
-                `${damageItem.damage_dice} (${damageItem.damage_type.name})`
-              )).join(', ')
-            )}
-            </strong><br />
-            {item.desc}
-          </p>
-        </li>
-      ))}
-      </ul>
-    </Card>
-  }
-  { data.legendary_actions && data.legendary_actions.length > 0 &&
-
-    <Card title="Legendary Actions">
-      <ul>
-      {data.legendary_actions.map((item) => (
-        <li>
-          <p>
-            <strong>
-              {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
-                {item.damage && item.damage.length > 0 && (
-                  item.damage.map(damageItem => (
-                `${damageItem.damage_dice} (${damageItem.damage_type.name})`
-              )).join(', ')
-            )}
-            </strong><br />
-            {item.desc}
-          </p>
-        </li>
-      ))}
-      </ul>
-    </Card>
-  }
-  { data.reactions && data.reactions.length > 0 &&
-
-    <Card title="Reactions">
-      <ul>
-      {data.reactions.map((item) => (
-        <li>
-          <p>
-            <strong>{item.name}</strong><br />
-            {item.desc}
-          </p>
-        </li>
-      ))}
-      </ul>
-    </Card>
-  }
 </Card>
 

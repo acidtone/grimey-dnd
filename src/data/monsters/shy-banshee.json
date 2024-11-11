@@ -1,0 +1,59 @@
+{
+	"index": "shy-banshee",
+	"name": "Shy Banshee",
+	"desc": "This shy half-elf is now screaming like a banshee.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 10
+		}
+	],
+	"hit_points": 16,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "30 ft."
+	},
+	"strength": 10,
+	"dexterity": 10,
+	"constitution": 10,
+	"intelligence": 10,
+	"wisdom": 10,
+	"charisma": 10,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 10
+	},
+	"languages": "",
+	"special_abilities": [],
+	"actions": [
+		{
+			"name": "Courageous Wail (Recharge 5-6)",
+			"desc": "The half-elf screams like a person who's just discovered their true voice for the first time, in a piercing, ear-splitting screech. This sound has no effect on constructs and undead. All other creatures within 30 ft. of her that can hear her must make a DC 10 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 6 (2d6) psychic damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "psychic",
+						"name": "Psychic",
+						"url": "/api/damage-types/psychic"
+					},
+					"damage_dice": "2d6"
+				}
+			],
+			"usage": {
+				"type": "recharge on roll",
+				"dice": "1d6",
+				"min_value": 5
+			}
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

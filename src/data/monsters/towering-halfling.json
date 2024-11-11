@@ -1,0 +1,60 @@
+{
+	"index": "towering-halfling",
+	"name": "Towering Halfling",
+	"desc": "This vertically challenged individual is much lankier than he'd hoped to be and is teetering on stilt-like, 15-ft.-tall legs.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 10
+		}
+	],
+	"hit_points": 8,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "50 ft."
+	},
+	"strength": 10,
+	"dexterity": 10,
+	"constitution": 10,
+	"intelligence": 10,
+	"wisdom": 10,
+	"charisma": 10,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 10
+	},
+	"languages": "",
+	"special_abilities": [
+		{
+			"name": "Too Tall",
+			"desc": "Each time this halfling makes an attack with his greataxe he must succeed on a DC 15 Dexterity saving throw or fall prone and suffer 1d6 bludgeoning damage as he loses his balance and topples over."
+		}
+	],
+	"actions": [
+		{
+			"name": "Greataxe",
+			"desc": "Melee Attack: +4 to hit, reach 15 ft., one creature. Hit: 8 (1d12 + 2) slashing damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "slashing",
+						"name": "Slashing",
+						"url": "/api/damage-types/slashing"
+					},
+					"damage_dice": "1d12+2"
+				}
+			],
+			"attack_bonus": 4
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

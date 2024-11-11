@@ -1,0 +1,94 @@
+{
+	"index": "hulking-hold-hammerhearth",
+	"name": "Towering Halfling",
+	"size": "Large",
+	"type": "monstrosity",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 17
+		}
+	],
+	"hit_points": 80,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "40 ft."
+	},
+	"strength": 23,
+	"dexterity": 14,
+	"constitution": 18,
+	"intelligence": 16,
+	"wisdom": 12,
+	"charisma": 9,
+	"proficiencies": [
+		{
+			"value": 6,
+			"proficiency": {
+				"index": "skill-arcana",
+				"name": "Skill: Arcana",
+				"url": "/api/proficiencies/skill-arcana"
+			}
+		},
+		{
+			"value": 9,
+			"proficiency": {
+				"index": "skill-alchemists-kit",
+				"name": "Skill: Alchemist's Kit",
+				"url": ""
+			}
+		},
+		{
+			"value": 6,
+			"proficiency": {
+				"index": "skill-deception",
+				"name": "Skill: Deception (with advantage)",
+				"url": "/api/proficiencies/skill-deception"
+			}
+		},
+		{
+			"value": 6,
+			"proficiency": {
+				"index": "skill-history",
+				"name": "Skill: History",
+				"url": "/api/proficiencies/skill-history"
+			}
+		}
+	],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 11
+	},
+	"languages": "",
+	"special_abilities": [],
+	"actions": [
+		{
+			"name": "Multiattack",
+			"desc": "Hold can make 2 attacks."
+		},
+		{
+			"name": "Grapple",
+			"desc": "Hold can attempt to grapple a creature, with advantage."
+		},
+		{
+			"name": "Barrel Throw.",
+			"desc": "Hold can throw a barrel as a melee or ranged (30/60) attack for (2d6)+6 bludgeoning damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "bludgeoning",
+						"name": "Bludgeoning",
+						"url": "/api/damage-types/bludgeoning"
+					},
+					"damage_dice": "2d6+6"
+				}
+			]
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

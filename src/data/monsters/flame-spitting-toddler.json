@@ -1,0 +1,54 @@
+{
+	"index": "flame-spitting-toddler",
+	"name": "Flame Spitting Toddler",
+	"desc": "This youngster breathes fire every time it opens its mouth.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 10
+		}
+	],
+	"hit_points": 4,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "30 ft."
+	},
+	"strength": 10,
+	"dexterity": 10,
+	"constitution": 10,
+	"intelligence": 10,
+	"wisdom": 10,
+	"charisma": 10,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 10
+	},
+	"languages": "",
+	"special_abilities": [],
+	"actions": [
+		{
+			"name": "Burning Babble",
+			"desc": " The toddler opens its mouth to speak and a gout of flames erupts in a 15-ft. cone. Each creature in the cone must make a DC 12 Dexterity saving throw or take 2d6 damage on a failed save, and half as much damage on a successful one.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "fire",
+						"name": "Fire",
+						"url": "/api/damage-types/fire"
+					},
+					"damage_dice": "2d6"
+				}
+			]
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

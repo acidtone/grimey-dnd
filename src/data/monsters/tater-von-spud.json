@@ -1,0 +1,71 @@
+{
+	"index": "tater-von-spud",
+	"name": "Tater Von Spud",
+	"desc": "This roving grappler is known for his goading taunts and skills in the fighter's pit. After taking one of Presto's strength potions, he gains more strength, as well as some unwelcome side effects.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "hide armor",
+			"value": 13
+		}
+	],
+	"hit_points": 45,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "30 ft."
+	},
+	"strength": 16,
+	"dexterity": 12,
+	"constitution": 16,
+	"intelligence": 9,
+	"wisdom": 11,
+	"charisma": 12,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 10
+	},
+	"languages": "",
+	"special_abilities": [
+		{
+			"name": "Grappler",
+			"desc": "Has advantage on attack rolls against a creature he is grappling. Can use his action to try to pin a creature grappled by him. To do so, Tater makes another grapple check. On a success, he and the creature are both restrained until the grapple ends."
+		},
+		{
+			"name": "Reckless",
+			"desc": "At the start of his turn, Tater can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against him have advantage until the start of his next turn."
+		}
+	],
+	"actions": [
+		{
+			"name": "Multiattack",
+			"desc": "Tater Von Spud makes two attacks."
+		},
+		{
+			"name": "Grapple",
+			"desc": "Tater Von Spud makes a grapple attack (contested Strength) against a target."
+		},
+		{
+			"name": "Throw",
+			"desc": "Tater Von Spud will throw a grappled creature up to 20 ft. The creature takes 2d6 bludgeoning damage upon impact. If thrown at another creature, that creature must succeed on a DC 15 strength saving throw or take the same damage and be knocked prone.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "bludgeoning",
+						"name": "Bludgeoning",
+						"url": "/api/damage-types/bludgeoning"
+					},
+					"damage_dice": "2d6"
+				}
+			]
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

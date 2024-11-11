@@ -1,0 +1,59 @@
+{
+	"index": "acid-dwarf",
+	"name": "Acid Dwarf",
+	"desc": "This poor soul was hoping for an alluring tonic to attract a love interest but is now covered in skin-melting acid.",
+	"size": "Medium",
+	"type": "humanoid",
+	"alignment": "unaligned",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 10
+		}
+	],
+	"hit_points": 12,
+	"hit_dice": "",
+	"hit_points_roll": "",
+	"speed": {
+		"walk": "25 ft."
+	},
+	"strength": 10,
+	"dexterity": 10,
+	"constitution": 10,
+	"intelligence": 10,
+	"wisdom": 10,
+	"charisma": 10,
+	"proficiencies": [],
+	"damage_vulnerabilities": [],
+	"damage_resistances": [],
+	"damage_immunities": [],
+	"condition_immunities": [],
+	"senses": {
+		"passive_perception": 10
+	},
+	"languages": "",
+	"special_abilities": [
+		{
+			"name": "Acidic Aura",
+			"desc": "Any creature that ends their turn within 5 ft. of this creature takes 1d6 acid damage."
+		}
+	],
+	"actions": [
+		{
+			"name": "Touch flesh",
+			"desc": "The dwarf makes a melee attack against a creature, its acidic fingers clinging to any bare flesh it can find. On a hit, the target takes 4 (1d8) acid damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "acid",
+						"name": "Acid",
+						"url": "/api/damage-types/acid"
+					},
+					"damage_dice": "1d8"
+				}
+			]
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}
