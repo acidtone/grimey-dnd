@@ -75,7 +75,7 @@
 			"desc": "Hold can attempt to grapple a creature, with advantage."
 		},
 		{
-			"name": "Barrel Throw.",
+			"name": "Barrel Throw",
 			"desc": "Hold can throw a barrel as a melee or ranged (30/60) attack for (2d6)+6 bludgeoning damage.",
 			"damage": [
 				{
@@ -85,6 +85,20 @@
 						"url": "/api/damage-types/bludgeoning"
 					},
 					"damage_dice": "2d6+6"
+				}
+			]
+		},
+		{
+			"name": "Hammer Toss",
+			"desc": "(costs 2 attacks) Hold can attempt to grapple a creature and throw it up to 60 ft. as one action, for (2d4)+6 bludgeoning damage. If he aims at another creature, have them make a DC 13 Dexterity saving throw to jump out of the way or take the same bludgeoning damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "bludgeoning",
+						"name": "Bludgeoning",
+						"url": "/api/damage-types/bludgeoning"
+					},
+					"damage_dice": "2d4+6"
 				}
 			]
 		}

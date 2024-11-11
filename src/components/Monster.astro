@@ -11,9 +11,7 @@ const { slug } = Astro.props;
 try {
   data = await import(`../data/monsters/${slug}.json`);
 } catch(error) {
-  console.log(error);
-  
-  const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${slug}`);
+    const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${slug}`);
   data = await response.json();
 }
 
