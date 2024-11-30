@@ -4,6 +4,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	experimental: {
+    contentLayer: true
+  },
 	integrations: [
 		starlight({
 			title: 'Grimey Campaigns',
