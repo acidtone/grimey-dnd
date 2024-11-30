@@ -1,0 +1,19 @@
+---
+import type { StrengthsWeaknesses } from '../schemas/CustomStats.schema';
+
+interface Props{stats:StrengthsWeaknesses}  
+
+const { stats } = Astro.props;
+
+---
+
+<h3>Strengths/Weaknesses</h3>
+<ul>
+  <li>Vulnerabilities: {stats.damage_vulnerabilities.length > 0 ? stats.damage_vulnerabilities.join(', ') : 'None'}</li>
+  <li>Resistances: {stats.damage_resistances.length > 0 ? stats.damage_resistances.join(', ') : 'None'}</li>
+  <li>Immunities: {stats.damage_immunities.length > 0 ? stats.damage_immunities.join(', ') : 'None'}</li>
+  <li>Condition Immunities: {stats.condition_immunities.length > 0 ? stats.condition_immunities.map((item) => (
+    item.name
+  )).join(', '): 'None'}</li>
+</ul>
+

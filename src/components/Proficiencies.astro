@@ -1,0 +1,17 @@
+---
+import type { ProficiencySchema } from '../schemas/Monster.schema';
+
+interface Props{stats:ProficiencySchema[]}  
+
+const { stats } = Astro.props;
+
+---
+
+{stats && stats.length > 0 && (
+  <h3>Proficiencies</h3>
+  <ol>
+    {stats.map((item) => (
+      <li>{item.proficiency.name} ({item.value > 0 ? '+' : '-'}{item.value})</li>
+    ))}
+  </ol>
+)}

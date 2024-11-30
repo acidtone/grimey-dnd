@@ -1,9 +1,11 @@
 ---
 import { Card, Tabs, TabItem } from '@astrojs/starlight/components';
 import BattleBlock from './BattleBlock.astro';
+import Proficiencies from './Proficiencies.astro'
+import StrengthWeaknessBlock from './StrengthWeaknessBlock.astro'
 import ObjectBlock from '../components/ObjectBlock.astro';
 import type { Monster } from '../schemas/Monster.schema';
-import type { Stats, ArmorClass, BattleStats } from '../schemas/CustomStats.schema';
+import type { Stats, ArmorClass, BattleStats, StrengthsWeaknesses } from '../schemas/CustomStats.schema';
 
 let data: Monster;
 
@@ -28,7 +30,9 @@ const armorStats: ArmorClass = data.armor_class;
 const battleStats: BattleStats = {
   hit_points: data.hit_points,
   armor_class: armorStats,
-  proficiencies: data.proficiencies,
+}
+
+const StrengthWeaknessStats = {
   damage_vulnerabilities: data.damage_vulnerabilities,
   damage_resistances: data.damage_resistances,
   damage_immunities: data.damage_immunities,
@@ -36,87 +40,117 @@ const battleStats: BattleStats = {
 }
 
 ---
-<Card title={data.name}>
-  <Tabs>
-    <TabItem label="Battle">
-      <BattleBlock stats={ battleStats } />
-      { data.special_abilities && data.special_abilities.length > 0 &&
-        <Card title="Special Abilities">
-          <ul>
-          {data.special_abilities.map((item) => (
-            <li>
-              <p><strong>{item.name}</strong><br/>{item.desc}</p>
-            </li>
-          ))}
-          </ul>
-        </Card>
-      }
-      { data.actions && data.actions.length > 0 &&
-    
-        <Card title="Actions">
-          <ul>
-          {data.actions.map((item) => (
-            <li>
-              <p>
-                <strong>
-                  {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
-                    {item.damage && item.damage.length > 0 && (
-                      item.damage.map(damageItem => (
-                    `${damageItem.damage_dice} (${damageItem.damage_type.name})`
-                  )).join(', ')
-                )}
-                </strong><br />
-                {item.desc}
-              </p>
-            </li>
-          ))}
-          </ul>
-        </Card>
-      }
-      { data.legendary_actions && data.legendary_actions.length > 0 &&
-    
-        <Card title="Legendary Actions">
-          <ul>
-          {data.legendary_actions.map((item) => (
-            <li>
-              <p>
-                <strong>
-                  {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
-                    {item.damage && item.damage.length > 0 && (
-                      item.damage.map(damageItem => (
-                    `${damageItem.damage_dice} (${damageItem.damage_type.name})`
-                  )).join(', ')
-                )}
-                </strong><br />
-                {item.desc}
-              </p>
-            </li>
-          ))}
-          </ul>
-        </Card>
-      }
-      { data.reactions && data.reactions.length > 0 &&
-    
-        <Card title="Reactions">
-          <ul>
-          {data.reactions.map((item) => (
-            <li>
-              <p>
-                <strong>{item.name}</strong><br />
-                {item.desc}
-              </p>
-            </li>
-          ))}
-          </ul>
-        </Card>
-      }    
-    </TabItem>
-    <TabItem label="Extras">
-      <ObjectBlock stats={ stats } />
-      {Object.entries(data.speed).length > 0 && (<ObjectBlock stats={data.speed} />)}
-      {Object.entries(data.senses).length > 0 && (<ObjectBlock stats={data.senses} />)}
-    </TabItem>
-  </Tabs>
+<div class="monster-card">
+  <label for=`toggle-${data.name}` class="title">{data.name}</label>
+  <input type="checkbox" name="toggle" id=`toggle-${data.name}`>
+  <div class="body">
+    <Tabs>
+      <TabItem label="Battle">
+        <BattleBlock stats={ battleStats } />
+        { data.special_abilities && data.special_abilities.length > 0 &&
+          <Card title="Special Abilities">
+            <ul>
+            {data.special_abilities.map((item) => (
+              <li>
+                <p><strong>{item.name}</strong><br/>{item.desc}</p>
+              </li>
+            ))}
+            </ul>
+          </Card>
+        }
+        { data.actions && data.actions.length > 0 &&
+      
+          <Card title="Actions">
+            <ul>
+            {data.actions.map((item) => (
+              <li>
+                <p>
+                  <strong>
+                    {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                      {item.damage && item.damage.length > 0 && (
+                        item.damage.map(damageItem => (
+                      `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+                    )).join(', ')
+                  )}
+                  </strong><br />
+                  {item.desc}
+                </p>
+              </li>
+            ))}
+            </ul>
+          </Card>
+        }
+        { data.legendary_actions && data.legendary_actions.length > 0 &&
+      
+          <Card title="Legendary Actions">
+            <ul>
+            {data.legendary_actions.map((item) => (
+              <li>
+                <p>
+                  <strong>
+                    {item.name} {item.attack_bonus && `(${item.attack_bonus > 0 ? '+' : '-'}${item.attack_bonus})`}
+                      {item.damage && item.damage.length > 0 && (
+                        item.damage.map(damageItem => (
+                      `${damageItem.damage_dice} (${damageItem.damage_type.name})`
+                    )).join(', ')
+                  )}
+                  </strong><br />
+                  {item.desc}
+                </p>
+              </li>
+            ))}
+            </ul>
+          </Card>
+        }
+        { data.reactions && data.reactions.length > 0 &&
+      
+          <Card title="Reactions">
+            <ul>
+            {data.reactions.map((item) => (
+              <li>
+                <p>
+                  <strong>{item.name}</strong><br />
+                  {item.desc}
+                </p>
+              </li>
+            ))}
+            </ul>
+          </Card>
+        }    
+      </TabItem>
+      <TabItem label="Extras">
+        <ObjectBlock stats={ stats } />
+        {Object.entries(data.speed).length > 0 && (<ObjectBlock stats={data.speed} />)}
+        {Object.entries(data.senses).length > 0 && (<ObjectBlock stats={data.senses} />)}
+        <Proficiencies stats={data.proficiencies} />
+        <StrengthWeaknessBlock stats={StrengthWeaknessStats} />
+      </TabItem>
+    </Tabs>
+  </div>
+</div>  
 
-</Card>
+<style>
+  .monster-card {
+    border: 1px solid var(--sl-color-gray-4);
+    padding: 0 1rem 0;
+  }
+  .monster-card .body {
+    display: none;
+  }
+  
+  label {
+    display: block;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: larger;
+  }
+  input {
+    display: none;
+  }
 
+  input:checked ~ div.body {
+    border-top: 1px solid var(--sl-color-gray-4);
+    display: block;
+  }
+
+</style>
