@@ -17,14 +17,22 @@ export default defineConfig({
 				{
 					label: 'Brew',
 					autogenerate: { directory: 'brew' },
+					collapsed: true,
 				},
 				{
 					label: 'Presto Change-O',
 					autogenerate: { directory: 'presto-change-o' },
+					collapsed: true,
+				},
+				{
+					label: 'Ruins of Thundertree',
+					autogenerate: { directory: 'thundertree' },
+					collapsed: true,
 				},
 				{
 					label: 'Settings',
 					autogenerate: { directory: 'settings' },
+					collapsed: true,
 				}
 			],
 		}),

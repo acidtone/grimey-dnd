@@ -1,0 +1,75 @@
+{
+	"index": "twig-blight",
+	"name": "Twig Blight",
+	"desc": "A twig blight is an awakened plant that resembles a woody shrub that can pull its roots free of the ground. Its branches twist together to form a humanoid-looking body with a head and limbs.",
+	"size": "Small",
+	"type": "plant",
+	"alignment": "neutral evil",
+	"armor_class": [
+		{
+			"type": "natural armor",
+			"value": 13
+		}
+	],
+	"hit_points": 4,
+	"hit_dice": "",
+	"hit_points_roll": "1d6 + 1",
+	"speed": {
+		"walk": "20 ft."
+	},
+	"strength": 6,
+	"dexterity": 13,
+	"constitution": 12,
+	"intelligence": 4,
+	"wisdom": 8,
+	"charisma": 3,
+	"proficiencies": [
+		{
+			"value": 3,
+			"proficiency": {
+				"index": "skill-stealth",
+				"name": "Skill: Stealth",
+				"url": "/api/proficiencies/skill-stealth"
+			}
+		}
+	],
+	"damage_vulnerabilities": [
+		"Fire"
+	],
+	"damage_resistances": [],
+	"damage_immunities": [
+		"Blinded", 
+		"Deafened" 
+	],
+	"condition_immunities": [],
+	"senses": {
+		"blindsight": "60 ft.",
+		"passive_perception": 9
+	},
+	"languages": "understands Common but can't speak",
+	"special_abilities": [
+		{
+			"name": "False Appearance",
+			"desc": "While the blight remains motionless, it is indistinguishable from a dead shrub."
+		}
+	],
+	"actions": [
+		{
+			"name": "Claws",
+			"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.",
+			"damage": [
+				{
+					"damage_type": {
+						"index": "piercing",
+						"name": "Piercing",
+						"url": "/api/damage-types/piercing"
+					},
+					"damage_dice": "1d4+1"
+				}
+			],
+			"attack_bonus": 3
+		}
+	],
+	"url": "",
+	"legendary_actions": []
+}

@@ -1,6 +1,7 @@
 {
-  "index":"zombie",
-  "name":"Zombie",
+  "index":"ash-zombie",
+  "name":"Ash Zombie",
+  "desc": "These zombies were created by the magical devastation when Mount Hotenow erupted thirty years ago.",
   "size":"Medium",
   "type":"undead",
   "alignment":"neutral evil",
